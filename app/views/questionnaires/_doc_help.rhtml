@@ -1,0 +1,24 @@
+<div id="doc_help">
+你可以按如下格式增加调查问题<br/>
+每个问题以"---"开始<br/>
+---<br/>
+<span class="interp"># 问题出现的顺序</span><br/>
+question: 1<br/>
+<span class="interp"># 类型, QA:问答, SC:单选, MC:多选</span><br/>
+type: QA|SC|MC<br/>
+<span class="interp"># 答案框大小, 单选和多选为“其他”答案框</span><br/>
+[size: S|M|L]<br/>
+<span class="interp"># 是否被统计(不写的话就列入统计)</span><br/>    
+[stat: false]<br/>
+<span class="interp"># 问题内容</span><br/>	   
+content: content<br/> 
+<span class="interp"># 选项(' - ' 前缀，注意空格)</span><br/>  
+[options:<br/>          
+  &nbsp;&nbsp;- option content 1<br/>
+  &nbsp;&nbsp;[- option content 2]<br/>
+  &nbsp;&nbsp;[- ...]]<br/>
+<br/>
+---<br/>
+question: 2<br/>
+...<br/> 
+</div>

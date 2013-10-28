@@ -1,0 +1,19 @@
+<%= error_messages_for 'question' %>
+
+<!--[form:question]-->
+<p><label for="question_option_type">Option type</label><br/>
+<%= text_field 'question', 'option_type'  %></p>
+
+<p><label for="question_answer_size">Answer size</label><br/>
+<%= text_field 'question', 'answer_size'  %></p>
+
+<p><label for="question_show_as_stat">Show as stat</label><br/>
+<select id="question_show_as_stat" name="question[show_as_stat]"><option value="false">False</option><option value="true" selected>True</option></select></p>
+
+<p><label for="question_content">Content</label><br/>
+<%= text_area 'question', 'content'  %></p>
+
+<p><label for="question_order">Order</label><br/>
+<%= text_field 'question', 'order'  %></p>
+<!--[eoform:question]-->
+

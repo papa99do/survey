@@ -1,0 +1,8 @@
+<% for column in Questionnaire.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @questionnaire.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @questionnaire %> |
+<%= link_to 'Back', :action => 'list' %>

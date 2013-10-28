@@ -1,0 +1,8 @@
+<div>
+<% @questionnaires.each do |q| %>
+    <li>
+    <div><%=link_to q.title, {:action => :show_statistics, :id => q}%></div>
+    <div><%=q.description%></div>
+    </li>
+<% end %>
+</div>

@@ -1,0 +1,20 @@
+The format of questionnaire format should be as follows:
+
+# Start of the doc (not required)
+
+---
+question: 1        # show order of the question  
+type: QA|SC|MC     # type of question, QA:q&a, SC:single choice, MC:multiple choice
+[size: S|M|L]      # answer box size S(mall)|M(iddle)|L(arge), for SC and MC, use this to show an 'Other Box'
+[stat: false]	   # if this question should be included in statistics
+content: content
+[options:
+  - option content 1
+  [- option content 2]
+  [- ...]]
+
+---
+question: 2
+... 
+
+# End of the doc (not required)

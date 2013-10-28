@@ -1,0 +1,15 @@
+<%= error_messages_for 'questionnaire' %>
+
+<!--[form:questionnaire]-->
+<p><label for="questionnaire_title">调查主题</label><br/>
+<%= text_field 'questionnaire', 'title'  %></p>
+
+<p><label for="questionnaire_description">调查描述</label><br/>
+<%= text_area 'questionnaire', 'description', "cols" => 68, "rows" => 3  %></p>
+<p><lable for="questionnaire_questions_doc">调查内容</label><br/>
+<%= render :partial => 'doc_help' %>
+<%= text_area 'questionnaire', 'questions_doc', "cols" => 68, "rows" => 21 %>
+</p>
+
+<!--[eoform:questionnaire]-->
+

@@ -1,0 +1,7 @@
+<% if question.answer_size == 'S' -%>
+    <input type="text" name="c<%=question.id%>" />
+<% elsif question.answer_size == 'M' -%>
+    <br /><textarea rows="3" name="c<%=question.id%>"></textarea>
+<% elsif question.answer_size == 'L' -%>
+    <br /><textarea rows="5" name="c<%=question.id%>"></textarea>
+<% end -%>

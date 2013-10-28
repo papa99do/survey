@@ -1,0 +1,27 @@
+<div>
+<h2><%=@questionnaire.title%></h2>
+<div class="description"><%=@questionnaire.description%></div>
+
+<ol>
+<% @questions.each do |question| -%>
+  <li class="question">
+    <span class="question-title"><%=question.content%></span>
+    <span class="hint-id">(q<%=question.id%>,<%=question.option_type%>)</span>
+    <ol style="list-style-type: upper-alpha;">
+    <% question.options.each do |option| -%>
+      <li>
+          <span class="option"><%= option.content %></span>
+          <span class="hint-id">(o<%=option.id%>)</span>
+          <span class="percent">
+          <% @total_counts.keys.each do |key| -%>
+            <%=format_percentage(@statistics[key][option.id.to_s], @total_counts[key])%>
+          <% end -%>
+          </span>
+      </li>
+    <% end -%>
+    </ol>
+  </li>
+<% end -%>
+</ol>
+
+</div>

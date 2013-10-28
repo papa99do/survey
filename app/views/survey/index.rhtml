@@ -1,0 +1,8 @@
+<div>
+<% @published_questionnaires.each do |q| %>
+    <li>
+    <div><%=link_to q.title, {:action => :show_questionnaire, :id => q}%></div>
+    <div><%=q.description%></div>
+    </li>
+<% end %>
+</div>

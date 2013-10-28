@@ -1,0 +1,28 @@
+<h1>Listing questionnaires</h1>
+
+<table>
+  <tr>
+  <% for column in Questionnaire.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for questionnaire in @questionnaires %>
+  <tr>
+  <% for column in Questionnaire.content_columns %>
+    <td><%=h questionnaire.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Preview', {:controller => 'survey', :action => 'show_questionnaire', :id => questionnaire },:target => "_blank"%></td>
+    <% if questionnaire.status == "new" -%>
+    <td><%= link_to 'Edit', :action => 'edit', :id => questionnaire  %></td>
+    <% end -%>    
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @questionnaire_pages.current.previous } if @questionnaire_pages.current.previous %>
+<%= link_to 'Next page', { :page => @questionnaire_pages.current.next } if @questionnaire_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New questionnaire', :action => 'new' %>

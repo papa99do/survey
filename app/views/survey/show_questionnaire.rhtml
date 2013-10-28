@@ -1,0 +1,46 @@
+<div>
+<h2><%=@questionnaire.title%></h2>
+<div class="description"><%=@questionnaire.description%></div>
+<% form_tag :action => "submit_answers" do -%>
+<input type="hidden" name="id" value="<%=@questionnaire.id%>" />
+<ol>
+<% @questionnaire.questions.each do |question| -%>
+  <li class="question">
+    <span class="question-title"><%=question.content%></span>
+    <div class="options">
+    <% if question.option_type == 'SC' -%>
+
+      <% question.options.each do |option| -%>
+        <input type="radio" name="q<%=question.id%>" id="o<%=option.id%>" value="<%=option.id%>" />
+        <label for="o<%=option.id%>"><%= option.content %></label><br />
+      <% end -%>
+
+      <% if !question.answer_size.nil? -%>
+        <input type="radio" name="q<%=question.id%>" id="oo<%=question.id%>" value="o" />
+        <label for="oo<%=question.id%>">其他</label>
+        <%= render :partial => 'answer_box', :locals => {:question => question} -%>
+      <% end -%>
+
+    <% elsif question.option_type == 'MC' -%>
+    
+      <% question.options.each do |option| -%>
+        <input type="checkbox" name="q<%=question.id%>_o<%=option.id%>" id="o<%=option.id%>" value="<%=option.id%>" />
+        <label for="o<%=option.id%>"><%= option.content %></label><br />
+      <% end -%>
+      <% if !question.answer_size.nil? -%>
+        <input type="checkbox" name="q<%=question.id%>_o0" id="oo<%=question.id%>" value="o" />
+        <label for="oo<%=question.id%>">其他</label>
+        <%= render :partial => 'answer_box', :locals => {:question => question} -%>
+      <% end -%>
+    
+    <% elsif question.option_type == 'QA' -%>
+        <input type="hidden" name="q<%=question.id%>_o0" value="o" />
+        <%= render :partial => 'answer_box', :locals => {:question => question} -%>
+    <% end -%>
+    </div>
+  </li>
+<% end -%>
+</ol>
+<div><%= submit_tag "   提  交   " %></div>
+<% end -%>
+</div>

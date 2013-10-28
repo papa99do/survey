@@ -1,0 +1,11 @@
+li.question {padding:5px 10px 5px 5px;}
+
+.percent {padding-left:10px; color:red;}
+
+.hint-id {padding:0px 5px 0px 5px; color:#cccccc; font-size:12px;}
+
+.description {padding:0px 5px 10px 5px; color:#aaaaff; font-size:14px;}
+
+.question-title {color:blue;}
+
+.options {padding:5px 0px 10px 0px; font-size:14px;}
